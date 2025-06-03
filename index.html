@@ -30,35 +30,27 @@
                     </div>
                 </div>
                 <div class="md:hidden">
-                    <button id="menu-toggle" class="text-gray-700 hover:text-indigo-600 focus:outline-none">
+                    <button id="hamburger-toggle" class="text-gray-700 hover:text-indigo-600 focus:outline-none">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
                 </div>
             </div>
+            <!-- Dropdown Menu for Mobile -->
+            <div id="dropdown-menu" class="dropdown-menu hidden md:hidden bg-white shadow-lg px-4 py-6">
+                <div class="flex flex-col space-y-4">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-lg font-medium">Home</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-lg font-medium">About</a>
+                    <a href="#education" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-lg font-medium">Education</a>
+                    <a href="#skills" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-lg font-medium">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-lg font-medium">Projects</a>
+                    <a href="#testimonials" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-lg font-medium">Reviews</a>
+                    <a href="#certifications" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-lg font-medium">Certifications</a>
+                </div>
+            </div>
         </div>
     </nav>
-
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="mobile-menu fixed inset-y-0 right-0 w-64 bg-white shadow-lg z-50 p-4">
-        <div class="flex justify-end">
-            <button id="menu-close" class="text-gray-700 hover:text-indigo-600 focus:outline-none">
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-        </div>
-        <div class="mt-8 flex flex-col space-y-4">
-            <a href="#home" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-lg font-medium">Home</a>
-            <a href="#about" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-lg font-medium">About</a>
-            <a href="#education" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-lg font-medium">Education</a>
-            <a href="#skills" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-lg font-medium">Skills</a>
-            <a href="#projects" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-lg font-medium">Projects</a>
-            <a href="#testimonials" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-lg font-medium">Reviews</a>
-            <a href="#certifications" class="nav-link text-gray-700 hover:text-indigo-600 px-3 py-2 text-lg font-medium">Certifications</a>
-        </div>
-    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero-section min-h-screen flex items-center pt-36">
@@ -584,7 +576,7 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <button id="back обратно-to-top" class="fixed bottom-8 right-8 bg-indigo-600 text-white w-12 h-12 rounded-full shadow-lg hidden items-center justify-center">
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-indigo-600 text-white w-12 h-12 rounded-full shadow-lg hidden items-center justify-center">
         <i class="fas fa-arrow-up"></i>
     </button>
 
