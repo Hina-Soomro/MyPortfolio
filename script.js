@@ -1,91 +1,87 @@
-.perspective {
-    perspective: 1000px;
-}
+document.addEventListener('DOMContentLoaded', () => {
+    // Hamburger Menu Toggle
+    const hamburgerToggle = document.getElementById('hamburger-toggle');
+    const dropdownMenu = document.getElementById('dropdown-menu');
 
-.card-3d {
-    transition: transform 0.6s ease;
-    transform-style: preserve-3d;
-}
+    hamburgerToggle.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('open');
+    });
 
-.card-3d:hover {
-    transform: rotateY(10deg) rotateX(5deg) translateZ(20px);
-}
+    // Close dropdown when clicking a nav link
+    const navLinks = dropdownMenu.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            dropdownMenu.classList.remove('open');
+        });
+    });
 
-.skill-bar {
-    background-color: #e5e7eb;
-    height: 8px;
-    border-radius: 4px;
-    overflow: hidden;
-}
+    // Back to Top Button
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTop.classList.remove('hidden');
+        } else {
+            backToTop.classList.add('hidden');
+        }
+    });
 
-.skill-progress {
-    background: linear-gradient(to right, #4f46e5, #e11d48);
-    height: 100%;
-    transition: width 1s ease-in-out;
-}
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 
-.btn-primary {
-    background: linear-gradient(to right, #4f46e5, #e11d48);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    // GSAP Animations
+    gsap.registerPlugin(ScrollTrigger);
 
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
+    // Hero Section Animation
+    gsap.from('.hero-section .text-center, .hero-section .perspective', {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        stagger: 0.2,
+        ease: 'power3.out'
+    });
 
-.btn-secondary {
-    background: linear-gradient(to right, #6b7280, #4b5563);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    // Section Title Animations
+    gsap.utils.toArray('.section-title').forEach(title => {
+        gsap.from(title, {
+            scrollTrigger: {
+                trigger: title,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            },
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            ease: 'power2.out'
+        });
+    });
 
-.btn-secondary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
+    // Card Animations
+    gsap.utils.toArray('.card-3d').forEach(card => {
+        gsap.from(card, {
+            scrollTrigger: {
+                trigger: card,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            },
+            opacity: 0,
+            y: 50,
+            duration: 0.8,
+            ease: 'power2.out'
+        });
+    });
 
-.scroll-indicator {
-    width: 30px;
-    height: 50px;
-    border: 2px solid #4f46e5;
-    border-radius: 25px;
-    position: relative;
-}
-
-.scroll-indicator::before {
-    content: '';
-    width: 6px;
-    height: 10px;
-    background: #4f46e5;
-    border-radius: 3px;
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: scroll 1.5s infinite;
-}
-
-@keyframes scroll {
-    0% { transform: translateX(-50%) translateY(0); opacity: 1; }
-    100% { transform: translateX(-50%) translateY(20px); opacity: 0; }
-}
-
-.floating-element {
-    animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-}
-
-.dropdown-menu {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-in-out;
-}
-
-.dropdown-menu.open {
-    max-height: 400px; /* Adjust based on content height */
-}
+    // Skill Progress Bars
+    gsap.utils.toArray('.skill-progress').forEach(bar => {
+        gsap.from(bar, {
+            scrollTrigger: {
+                trigger: bar,
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            },
+            width: 0,
+            duration: 1.5,
+            ease: 'power2.out'
+        });
+    });
+});
